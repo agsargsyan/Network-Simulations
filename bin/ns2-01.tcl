@@ -6,7 +6,7 @@ $ns color 1 black
 $ns color 2 red
 
 #Открыть трейс-файл для nam
-set nf [open out.nam w]
+set nf [open ns2-01.nam w]
 $ns namtrace-all $nf 
 
 #Finish procedure
@@ -43,7 +43,7 @@ $ns duplex-link-op $n2 $n3 queuePos 0.5
 #Установка TCP-соединение
 set tcp [new Agent/TCP]
 $tcp set class_ 2
-$ns attach-agent $n0 $tcp 
+$ns attach-agent $n0 $tcp
 set sink [new Agent/TCPSink]
 $ns attach-agent $n3 $sink
 $ns connect $tcp $sink
@@ -51,7 +51,7 @@ $tcp set fid_ 1
 
 #Установим соединение FTP поверх TCP
 set ftp [new Application/FTP]
-$ftp attach-agent $tcp                     
+$ftp attach-agent $tcp
 $ftp set type_ FTP
 
 #Установим UDP-соединение
@@ -60,7 +60,7 @@ $ns attach-agent $n1 $udp
 set null [new Agent/Null]
 $ns attach-agent $n3 $null
 $ns connect $udp $null
-$udp set fid_ 2                                                  
+$udp set fid_ 2
 
 #Установим соединение CBR поверх UDP
 set cbr [new Application/Traffic/CBR]
