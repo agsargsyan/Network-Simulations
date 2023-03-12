@@ -87,4 +87,6 @@ puts "CBR packet size = [$cbr set packet_size_]"
 puts "CBR interval = [$cbr set interval_]"
 
 #Запуск программы
-$ns run 
+$ns run
+
+ 
